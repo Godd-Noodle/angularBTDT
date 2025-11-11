@@ -29,6 +29,14 @@ export class Businesses {
 
   }
 
+  ngOnDestroy() {
+    // remove session storage for this page
+    if (sessionStorage.getItem('page')){
+      sessionStorage.removeItem('page');
+    }
+
+  }
+
   previousPage(){
     if (this.page > 1) {
       this.page = this.page - 1;
