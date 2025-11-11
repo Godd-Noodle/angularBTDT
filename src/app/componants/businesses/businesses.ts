@@ -1,28 +1,22 @@
 import { Component } from '@angular/core';
+import {BusinessData} from '../../services/business-data'
 
 @Component({
   selector: 'app-businesses',
   imports: [],
+  providers: [BusinessData],
   templateUrl: './businesses.html',
   styleUrl: './businesses.css',
 })
 export class Businesses {
 
-  businesses_list = [
-    {
-      name : 'Costa',
-      town : "Downpatrick",
-      rating : 3
-    },
-    {
-      name : 'Audacity',
-      town : "Belfast",
-      rating : 5
-    },
-    {
-      name : 'Starbucks',
-      town : "Carryduff",
-      rating : 1
-    },
-  ]
+  businesses_list : any = []
+
+
+  constructor(private businessDataService: BusinessData) {}
+
+
+  ngOnInit() {
+    this.businesses_list = this.businessDataService.getBusinessData();
+  }
 }
