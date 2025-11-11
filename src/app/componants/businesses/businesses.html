@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      @for (business of businesses_list; track business.name) {
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-header">
+            {{business.name}}
+
+          </div>
+          <div class="card-body">
+            This business is based in {{business.town}}
+
+          </div>
+          <div class="card-footer">
+            Rating : {{business.rating}}
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--<h1>-->
+<!--  BIZ Bean There Done That app/src/comp/businesses-->
+<!--</h1>-->
+
+
+<!--<h2>-->
+<!--  there are {{businesses_list.length}}-->
+<!--  businesses in the list-->
+
+<!--</h2>-->
+<!--<h2>-->
+
+<!--  the first business is:-->
+<!--  {{businesses_list[0].name}}-->
+
+<!--</h2>-->
+
+
+<!--@for (business of businesses_list; track business.name) {-->
+<!--  <p>-->
+<!--    Name: {{business.name}} <br>-->
+<!--    rating: {{business.rating}} <br>-->
+<!--    town: {{business.town}} <br>-->
+<!--  </p>-->
+
+<!--}-->
