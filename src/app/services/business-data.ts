@@ -8,19 +8,35 @@ import jsonData from '../../assets/businesses.json'
 export class BusinessData {
 
 
-  pageSize : number = 5;
 
-  getBusinessData(page: number = 1) {
 
-    let pageStart = (page - 1) * this.pageSize;
-    let pageEnd = pageStart + this.pageSize;
+  getBusinessesData(page: number = 1, pageSize : number = 5) {
 
-    console.log(jsonData.slice(pageStart, pageEnd));
+    let pageStart = (page - 1) * pageSize;
+    let pageEnd = pageStart + pageSize;
+
+    //console.log(jsonData.slice(pageStart, pageEnd));
     return jsonData.slice(pageStart, pageEnd);
   }
 
-  getLastPageNumber() {
-    return Math.ceil(jsonData.length / this.pageSize);
+  getLastPageNumber(pageSize : number = 5) {
+    return Math.ceil(jsonData.length / pageSize);
+  }
+
+  getBusiness(id : string){
+
+    for (const business of jsonData) {
+      if (business._id.$oid == id) return business;
+    }
+    return {};
+
+
+  }
+
+
+  testFunc(){
+
+    throw new Error("not implemented");
   }
 
 
